@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table style="border-collapse: collapse;">
+        <tr style="border: 1px solid black">
+            <th style="border: 1px solid black;">ID</th>
+            <th style="border: 1px solid black;">Tasks</th>
+            <th style="border: 1px solid black;">Description</th>
+        </tr>
+        {% for t in tasks %}
+        <tr>
+            <td style="border: 1px solid black;">{{ t.id }}</td>
+            <td style="border: 1px solid black;">{{ t.name }}</td>
+            <td style="border: 1px solid black;">{{ t.description }}</td>
+            <td style="border: 1px solid black;"><a href="{% url 'update-task' id=t.id %}">UPDATE TASK</a></td>
+            <td style="border: 1px solid black;"><a href="{% url 'delete-task' id=t.id %}">DELETE TASK</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    <p>
+        <a href="{% url 'add-task' %}">ADD TASK</a>
+    </p>
+</body>
+</html>
